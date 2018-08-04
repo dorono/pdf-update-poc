@@ -11,11 +11,7 @@ externalIds example: {
 
 
 firstHashEntry example:
-{
-  pdfHash: 'if8ooA+32YZc4SQBvIDDY9tgTatPoq4IZ8Kr+We1t38LR2RuURmaVu9D4shbi4VvND87PUqq5/0vsNFEGIIEDA==',
-  versionNumber: 6,
-  date: new Date()
-}
+'if8ooA+32YZc4SQBvIDDY9tgTatPoq4IZ8Kr+We1t38LR2RuURmaVu9D4shbi4VvND87PUqq5/0vsNFEGIIEDA=='
 
 */
 
@@ -32,9 +28,9 @@ const instance = axios.create({
 function createChain (externalIds, firstHashEntry) {
   const dateVal = new Date();
   externalIds.pdfCreationDate = dateVal;
-  firstHashEntry.versionDate = dateVal;
+  // firstHashEntry.versionDate = dateVal;
 
-  instance.post(BASE_URL, {
+  return instance.post('/chains', {
     external_ids: Object.values(externalIds).map((val) => btoa(val)),
     content: btoa(`firstHashEntry: ${firstHashEntry}`),
   });

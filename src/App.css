@@ -1,4 +1,12 @@
-.App {
+#main {
   width: 65%;
   margin: 20px auto;
+}
+
+.pdfList {
+  border: 1px solid #333;
+}
+
+.pdfList td {
+  padding: 10px;
 }

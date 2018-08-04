@@ -24,31 +24,36 @@ class App extends Component {
   }
 
   componentDidMount () {
-    apolloApi.fetchChains();
+
+    apolloApi.fetchChains()
+      .then((chains) => {
+        this.setState({
+          chains: chains.data.items,
+        }, () => console.log('this.state', this.state));
+      });
 
 
-    // this.setState({
-    //   chains: apolloApi.fetchChains(),
-    // });
   }
 
   render() {
-    return (<div></div>);
-    // let pdfRows = this.state.chains.map((chain, idx) => {
-    //   return (
-    //     <PdfRow
-    //       chainId={chain.chain_id}
-    //       key={`chain_${idx}`}
-    //     />
-    //   )
-    // });
+    // return (<div></div>);
+    let pdfRows = this.state.chains.map((chain, idx) => {
+      return (
+        <PdfRow
+          chainId={chain.chain_id}
+          key={`chain_${idx}`}
+        />
+      )
+    });
 
 
-    // return (
-    //   <table>
-    //     { pdfRows }
-    //   </table>
-    // );
+    return (
+      <table>
+        <tbody>
+          { pdfRows }
+        </tbody>
+      </table>
+    );
   }
 }
 

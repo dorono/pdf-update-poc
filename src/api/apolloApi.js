@@ -42,10 +42,7 @@ function createChain (externalIds, firstHashEntry) {
 
 
 function fetchChains () {
-  instance.get('/chains')
-  .then((response) => {
-    console.log('response', response)
-  });
+  return instance.get('/chains');
 }
 
 export default {

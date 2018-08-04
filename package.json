@@ -6,13 +6,17 @@
     "react-scripts": "1.1.4"
   },
   "dependencies": {
+    "ngrok": "^3.0.1",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "react-router-dom": "^4.3.1",
+    "save": "^2.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "https://api-2445581893456.production.gw.apicast.io"
 }

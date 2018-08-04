@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const USER_KEY = 'bc98a294a08d16309434666fae9b2034';
-const BASE_URL = 'https://api-2445581893456.production.gw.apicast.io';
+const BASE_URL = '/v1';
 
 /*
 externalIds example: {
@@ -18,17 +18,37 @@ firstHashEntry example:
 }
 
 */
+
+const instance = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'user-key': USER_KEY,
+    'Content-Type': 'application/json',
+  },
+  withCredentials: true,
+  crossDomain: true
+});
+
 function createChain (externalIds, firstHashEntry) {
   const dateVal = new Date();
   externalIds.pdfCreationDate = dateVal;
   firstHashEntry.versionDate = dateVal;
 
-  axios.post(BASE_URL, {
+  instance.post(BASE_URL, {
     external_ids: Object.values(externalIds).map((val) => btoa(val)),
     content: btoa(`firstHashEntry: ${firstHashEntry}`),
   });
 }
 
+
+function fetchChains () {
+  instance.get('/chains')
+  .then((response) => {
+    console.log('response', response)
+  });
+}
+
 export default {
   createChain,
+  fetchChains,
 }

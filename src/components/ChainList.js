@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import './App.css';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import '../ChainList.css';
 
-import apolloApi from './api/apolloApi.js';
+import apolloApi from '../api/apolloApi.js';
 
 const PdfRow = (props) => {
   return (
     <tr>
       <td>
-        { props.chainId }
+        <a href="">
+          { props.chainId }
+        </a>
       </td>
     </tr>
   );
 }
 
-class App extends Component {
+const ChainDetail = (props) => (
+  <div>
+
+  </div>
+)
+
+class ChainList extends Component {
   constructor(props) {
     super(props);
 
@@ -131,4 +138,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ChainList;

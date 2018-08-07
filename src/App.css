@@ -3,7 +3,8 @@
   margin: 20px auto;
 }
 
-.pdfList {
+.pdfList,
+.pdfList td {
   border: 1px solid #333;
 }
 

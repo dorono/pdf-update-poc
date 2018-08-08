@@ -1,25 +1,9 @@
 import React, { Component } from 'react';
-// import '../ChainList.css';
 
 import apolloApi from '../api/apolloApi.js';
 
-const PdfRow = (props) => {
-  return (
-    <tr>
-      <td>
-        <a href="">
-          { props.chainId }
-        </a>
-      </td>
-    </tr>
-  );
-}
+import EntityList from './EntityList';
 
-const ChainDetail = (props) => (
-  <div>
-
-  </div>
-)
 
 class ChainList extends Component {
   constructor(props) {
@@ -27,9 +11,9 @@ class ChainList extends Component {
 
     this.state = {
       chains: [],
-      newPdfName: '',
-      newPdfId: '',
-      newPdfHash: '',
+      newEntityName: '',
+      newEntityId: '',
+      entityFileHash: '',
     };
   }
 
@@ -61,26 +45,15 @@ class ChainList extends Component {
 
     apolloApi.createChain(
       {
-        pdfId: this.state.newPdfId,
-        pdfName: this.state.newPdfName,
+        entityId: this.state.newEntityId,
+        pdfName: this.state.newEntityName,
       },
-      this.state.newPdfHash
+      this.state.entityFileHash
     )
     .then(() => this.getChains());
   }
 
   render() {
-    // return (<div></div>);
-    let pdfRows = this.state.chains.map((chain, idx) => {
-      return (
-        <PdfRow
-          chainId={chain.chain_id}
-          key={`chain_${idx}`}
-        />
-      )
-    });
-
-
     return (
       <div
         id="main"
@@ -93,8 +66,8 @@ class ChainList extends Component {
               PDF ID:
               <input
                 type="text"
-                name="newPdfId"
-                value={this.state.newPdfId}
+                name="newEntityId"
+                value={this.state.newEntityId}
                 onChange={this.handleInputChange}
               />
             </label>
@@ -102,11 +75,11 @@ class ChainList extends Component {
 
           <div>
             <label>
-              Name:
+              Entity Name:
               <input
                 type="text"
-                name="newPdfName"
-                value={this.state.newPdfName}
+                name="newEntityName"
+                value={this.state.newEntityName}
                 onChange={this.handleInputChange}
               />
             </label>
@@ -114,11 +87,11 @@ class ChainList extends Component {
 
           <div>
             <label>
-              PDF Hash:
+              Entity File Hash:
               <input
                 type="text"
-                name="newPdfHash"
-                value={this.state.newPdfHash}
+                name="entityFileHash"
+                value={this.state.entityFileHash}
                 onChange={this.handleInputChange}
               />
             </label>
@@ -126,13 +99,9 @@ class ChainList extends Component {
           <input type="submit" value="Submit" />
         </form>
 
-        <table
-          className="pdfList"
-        >
-          <tbody>
-            { pdfRows }
-          </tbody>
-        </table>
+        <EntityList
+          entities={this.state.chains}
+        />
       </div>
     );
   }

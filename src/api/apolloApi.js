@@ -5,7 +5,7 @@ const BASE_URL = '/v1';
 
 /*
 externalIds example: {
-  pdfId: 'pdf id',
+  entityId: 'pdf id',
   pdfName: 'pdf name',
 }
 

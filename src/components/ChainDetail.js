@@ -10,7 +10,7 @@ class ChainDetail extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>Test</div>
     )
   }
 }

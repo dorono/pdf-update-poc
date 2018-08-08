@@ -1,18 +1,10 @@
-import React, { Component } from 'react';
-import '../App.css';
+import React from 'react';
 
-class ChainDetail extends Component {
-  constructor(props) {
-    super(props);
-
-
-  }
-
-  render() {
-    return (
-      <div>Test</div>
-    )
-  }
+const ChainDetail = ({ match }) => {
+  console.log(match);
+  return <h1>Hello </h1>
 }
+
+
 
 export default ChainDetail;

@@ -1,1 +1,4 @@
-# pdf-update-poc
+# entity-manager
+
+For components:
+https://react.semantic-ui.com/

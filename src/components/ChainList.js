@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Button, Form } from 'semantic-ui-react'
 
 import apolloApi from '../api/apolloApi.js';
 
 import EntityList from './EntityList';
-
+import '../index.css';
 
 class ChainList extends Component {
   constructor(props) {
@@ -58,6 +59,20 @@ class ChainList extends Component {
       <div
         id="main"
       >
+        <Form>
+          <Form.Field>
+            <label>First Name</label>
+            <input placeholder='First Name' />
+          </Form.Field>
+          <Form.Field>
+            <label>Last Name</label>
+            <input placeholder='Last Name' />
+          </Form.Field>
+
+          <Button type='submit'>Submit</Button>
+  </Form>
+
+
         <form
           onSubmit={this.handleSubmit}
         >

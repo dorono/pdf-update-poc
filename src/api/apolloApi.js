@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const USER_KEY = 'bc98a294a08d16309434666fae9b2034';
+const USER_KEY = process.env.REACT_APP_APOLLO_USER_KEY;
 const BASE_URL = '/v1';
 
 /*
